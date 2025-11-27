@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio - Hugo Simonin</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen text-gray-200 font-sans bg-slate-900 flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-slate-800/50 backdrop-blur-sm sticky top-0 z-50 shadow-lg shadow-black/20">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6 flex-wrap">
+      <h1 class="text-2xl font-bold">Mon Portfolio</h1>
+      <!-- Burger Menu Button -->
+      <button id="burger-menu" class="md:hidden p-2 rounded-md text-gray-200 hover:bg-slate-700">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+      <nav id="nav-links" class="hidden md:flex w-full md:w-auto mt-4 md:mt-0">
+        <ul class="flex flex-col md:flex-row md:space-x-6 w-full">
+          <li><a href="index.html" class="hover:text-blue-400 transition-colors duration-300">Accueil</a></li>
+          <li><a href="cv.html" class="hover:text-blue-400 transition-colors duration-300">CV</a></li>
+          <li><a href="certifs.html" class="hover:text-blue-400 transition-colors duration-300">Certifications</a></li>
+          <li><a href="projets.html" class="text-blue-400 font-semibold">Projets</a></li>
+          <li><a href="veille.html" class="hover:text-blue-400 transition-colors duration-300">Veille</a></li>
+          <li><a href="stages.html" class="hover:text-blue-400 transition-colors duration-300">Stages</a></li>
+          <li><a href="passions.html" class="hover:text-blue-400 transition-colors duration-300">Passions</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Section -->
+  <main class="container mx-auto flex-1 py-16 px-6 text-center">
+    
+    <h2 class="text-4xl font-bold mb-12 text-transparent bg-clip-text bg-white">Mes Projets</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="bg-slate-800 rounded-2xl p-6 shadow-lg border border-slate-700 transition-all duration-300 hover:shadow-purple-500/20 hover:scale-105 text-left">
+        <h3 class="text-xl font-semibold mb-2 text-blue-300">Projet 1 :</h3>
+        <p>Développement d'une fenêtre d'import automatique de commandes en WinDev</p>
+        <br>
+        <img src="ressources/Projet stage.png" alt="Fenêtre d'import WinDev" class="rounded-lg mt-4">
+      </div>
+      <div class="bg-slate-800 rounded-2xl p-6 shadow-lg border border-slate-700 transition-all duration-300 hover:shadow-purple-500/20 hover:scale-105 text-left">
+        <h3 class="text-xl font-semibold mb-2 text-blue-300">Projet 2 :</h3>
+        <p>Conception d'un Portfolio à l'aide d'HTML 5 et de CSS 3</p>
+        <br>
+        <img src="ressources/Photo Portfolio.png" alt="Capture d'écran du portfolio" class="rounded-lg mt-4">
+      </div>
+    </div>
+    
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-800/50 backdrop-blur-sm text-gray-300 py-6 mt-12">
+    <div class="container mx-auto flex justify-between items-center px-6">
+      <p><a href="mailto:hugo.simonin2352@gmail.com" class="hover:underline">Contactez-moi</a></p>
+      <a href="https://github.com/hugosmn25" target="_blank">
+        <img src="ressources/GitHub-Logo.png" alt="GitHub" class="h-8">
+      </a>
+    </div>
+  </footer>
+</body>
+<script>
+  document.getElementById('burger-menu').addEventListener('click', function() {
+    var navLinks = document.getElementById('nav-links');
+    if (navLinks.classList.contains('hidden')) {
+      navLinks.classList.remove('hidden');
+    } else {
+      navLinks.classList.add('hidden');
+    }
+  });
+</script>
+</html>
