@@ -5,9 +5,10 @@
   <title>Portfolio - Hugo Simonin</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="min-h-screen text-gray-200 font-sans bg-slate-900 flex flex-col">
 
-  <!-- Header -->
+  <!-- Header (style d'avant) -->
   <header class="bg-slate-800/50 backdrop-blur-sm sticky top-0 z-50 shadow-lg shadow-black/20">
     <div class="container mx-auto flex justify-between items-center py-4 px-6 flex-wrap">
       <h1 class="text-2xl font-bold">Mon Portfolio</h1>
@@ -31,36 +32,53 @@
     </div>
   </header>
 
-  <!-- Section -->
+  <!-- Section (style d'avant) -->
   <main class="container mx-auto flex-1 py-16 px-6 text-center">
-    
     <h2 class="text-4xl font-bold mb-12 text-transparent bg-clip-text bg-white">Mes Projets</h2>
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="bg-slate-800 rounded-2xl p-6 shadow-lg border border-slate-700 transition-all duration-300 hover:shadow-purple-500/20 hover:scale-105 text-left">
+
+    <!-- Cartes (garder comme ça) -->
+    <div class="grid md:grid-cols-2 gap-8 text-left">
+      <div class="bg-white/5 rounded-2xl p-6 border border-white/10 shadow-lg shadow-black/20 hover:border-blue-500/30 transition">
         <h3 class="text-xl font-semibold mb-2 text-blue-300">Projet de stage :</h3>
         <p>Développement d'une fenêtre d'import automatique de commandes en WinDev</p>
-        <br>
-        <img src="ressources/Projet stage.png" alt="Fenêtre d'import WinDev" class="rounded-lg mt-4">
+        <div class="mt-5 overflow-hidden rounded-xl border border-white/10 bg-black/20">
+          <img
+            src="ressources/Projet stage.png"
+            alt="Fenêtre d'import WinDev"
+            class="w-full h-56 md:h-64 object-cover transition-transform duration-300 hover:scale-[1.02]"
+          >
+        </div>
+        <div class="mt-5 flex flex-wrap gap-2">
+          <span class="text-xs px-3 py-1 rounded-full bg-blue-500/10 text-blue-200 border border-blue-500/20">WinDev</span>
+          <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-200 border border-white/10">Automatisation</span>
+        </div>
       </div>
-      <div class="bg-slate-800 rounded-2xl p-6 shadow-lg border border-slate-700 transition-all duration-300 hover:shadow-purple-500/20 hover:scale-105 text-left">
-        <h3 class="text-xl font-semibold mb-2 text-blue-300">Projet 2 :</h3>
-        <p>Conception d'un Portfolio à l'aide d'HTML 5 et de CSS 3</p>
-        <br>
-        <img src="ressources/Photo Portfolio.png" alt="Capture d'écran du portfolio" class="rounded-lg mt-4">
+
+      <div class="bg-white/5 rounded-2xl p-6 border border-white/10 shadow-lg shadow-black/20 hover:border-purple-500/30 transition">
+        <h3 class="text-xl font-semibold mb-2 text-blue-300">Projet au lycée :</h3>
+        <p>Conception d'un site web de gestion de sanctions en PHP</p>
+        <div class="mt-5 overflow-hidden rounded-xl border border-white/10 bg-black/20">
+          <img
+            src="ressources/projet-2.png"
+            alt="Capture du projet de sanctions"
+            class="w-full h-56 md:h-64 object-cover transition-transform duration-300 hover:scale-[1.02]"
+          >
+        </div>
+        <div class="mt-5 flex flex-wrap gap-2">
+          <span class="text-xs px-3 py-1 rounded-full bg-purple-500/10 text-purple-200 border border-purple-500/20">PHP</span>
+          <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-200 border border-white/10">MySQL</span>
+        </div>
       </div>
     </div>
-    
   </main>
 
-  <!-- Footer (identique à celui de l'index) -->
-  <footer class="bg-gradient-to-r from-[#333] via-[#444] to-[#222] text-white py-6 mt-12">
+  <!-- Footer (style d'avant, un peu plus foncé comme demandé) -->
+  <footer class="bg-gradient-to-br from-[#000012] via-[#121b25] to-[#18222d] text-white py-6 mt-12">
     <div class="container mx-auto flex flex-col items-center justify-center px-6 space-y-4">
-      <!-- Beau lien de contact + bouton GitHub -->
       <div class="flex flex-col sm:flex-row items-center gap-4">
         <a href="mailto:hugo.simonin14@gmail.com"
            class="inline-flex items-center gap-3 bg-white text-[#0f172a] px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition"
            aria-label="Envoyer un mail à Hugo Simonin">
-          <!-- mail icon -->
           <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
             <path d="M3 8.5v7A2.5 2.5 0 0 0 5.5 18h13a2.5 2.5 0 0 0 2.5-2.5v-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M21 6.5a2.5 2.5 0 0 0-2.5-2.5h-13A2.5 2.5 0 0 0 3 6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -72,7 +90,6 @@
         <a href="https://github.com/hugosmn25" target="_blank" rel="noopener noreferrer"
            class="inline-flex items-center gap-3 px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 hover:bg-gray-700 transition"
            aria-label="Voir mon GitHub">
-          <!-- GitHub icon -->
           <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M12 .5a12 12 0 00-3.793 23.399c.6.11.82-.261.82-.58 0-.287-.01-1.048-.016-2.056-3.338.726-4.043-1.61-4.043-1.61-.546-1.386-1.333-1.755-1.333-1.755-1.09-.745.083-.73.083-.73 1.205.086 1.84 1.238 1.84 1.238 1.07 1.833 2.809 1.303 3.495.996.108-.774.419-1.303.762-1.603-2.665-.303-5.467-1.332-5.467-5.93 0-1.31.468-2.382 1.236-3.222-.124-.303-.536-1.524.117-3.178 0 0 1.008-.323 3.3 1.23a11.5 11.5 0 016 0c2.29-1.553 3.296-1.23 3.296-1.23.656 1.654.244 2.875.12 3.178.77.84 1.234 1.912 1.234 3.222 0 4.61-2.807 5.624-5.48 5.921.431.372.815 1.103.815 2.222 0 1.604-.015 2.896-.015 3.289 0 .322.216.697.825.58A12.002 12.002 0 0012 .5z"/>
           </svg>
@@ -86,15 +103,15 @@
     </div>
   </footer>
 
-<script>
-  document.getElementById('burger-menu').addEventListener('click', function() {
-    var navLinks = document.getElementById('nav-links');
-    if (navLinks.classList.contains('hidden')) {
-      navLinks.classList.remove('hidden');
-    } else {
-      navLinks.classList.add('hidden');
-    }
-  });
-</script>
+  <script>
+    document.getElementById('burger-menu').addEventListener('click', function() {
+      var navLinks = document.getElementById('nav-links');
+      if (navLinks.classList.contains('hidden')) {
+        navLinks.classList.remove('hidden');
+      } else {
+        navLinks.classList.add('hidden');
+      }
+    });
+  </script>
 </body>
 </html>
