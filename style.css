@@ -1,0 +1,121 @@
+/* =========================================
+   DESIGN DU BOUTON THÈME
+   ========================================= */
+.btn-theme {
+    background-color: rgba(128, 128, 128, 0.2) !important;
+    border-radius: 50% !important;
+    padding: 10px !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-theme:hover {
+    background-color: rgba(128, 128, 128, 0.4) !important;
+}
+
+/* --- COULEURS DES ICÔNES SELON LE THÈME --- */
+/* Mode clair : icône sombre */
+html:not(.dark) #theme-toggle svg {
+    fill: #111827 !important;
+    color: #111827 !important;
+}
+
+/* Mode sombre : icône claire */
+html.dark #theme-toggle svg {
+    fill: #ffffff !important;
+    color: #ffffff !important;
+}
+
+/* =========================================
+   MODE CLAIR 
+   (S'active quand <html> n'a pas la classe .dark)
+   ========================================= */
+
+/* 1. Le fond global de la page */
+html:not(.dark) body {
+    background-color: #f3f4f6 !important; 
+    color: #111827 !important;
+}
+
+/* 2. Le header et la navbar (fond blanc + petite ombre) */
+html:not(.dark) header,
+html:not(.dark) nav,
+html:not(.dark) footer,
+html:not(.dark) .bg-gray-800,
+html:not(.dark) .bg-gray-900 {
+    background-color: #ffffff !important; 
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* 3. FORCER LA VISIBILITÉ DU HEADER : 
+   Tout le texte et les liens dans la nav deviennent sombres */
+html:not(.dark) header *,
+html:not(.dark) nav * {
+    color: #111827 !important;
+}
+
+/* 4. Titres et textes normaux de la page */
+html:not(.dark) h1, 
+html:not(.dark) h2, 
+html:not(.dark) h3, 
+html:not(.dark) h4,
+html:not(.dark) p, 
+html:not(.dark) li {
+    color: #111827 !important; 
+}
+
+/* 5. Liens au survol (Bleu Tailwind) */
+html:not(.dark) a:hover,
+html:not(.dark) header a:hover,
+html:not(.dark) nav a:hover {
+    color: #2563eb !important; 
+}
+
+/* 6. Garder les autres boutons intacts (boutons de formulaires, etc.) */
+html:not(.dark) button:not(.btn-theme) {
+    background-color: #2563eb !important; 
+    color: #ffffff !important; 
+}
+
+/* 5. GÉRER LES LIENS */
+html:not(.dark) a {
+    color: #2563eb !important; /* Bleu par défaut pour les liens */
+}
+html:not(.dark) a:hover {
+    color: #1d4ed8 !important; 
+}
+/* Exception pour les liens du header/nav qui doivent rester noirs */
+html:not(.dark) header a,
+html:not(.dark) nav a {
+    color: #111827 !important;
+}
+html:not(.dark) header a:hover,
+html:not(.dark) nav a:hover {
+    color: #2563eb !important;
+}
+
+/* 6. PROTÉGER LES BOUTONS
+   Pour éviter que le texte de tes boutons (comme "Me contacter") ne devienne sombre sur fond blanc, 
+   on force leur style à part. */
+html:not(.dark) button:not(.btn-theme),
+html:not(.dark) .btn {
+    background-color: #2563eb !important; 
+}
+html:not(.dark) button:not(.btn-theme) *,
+html:not(.dark) .btn * {
+    color: #ffffff !important; /* Le texte à l'intérieur des boutons reste blanc */
+}
+
+/* =========================================
+   EXCEPTIONS DU MODE CLAIR
+   ========================================= */
+
+/* Forcer certains éléments à rester blancs en toutes circonstances */
+html:not(.dark) .keep-white,
+html:not(.dark) .keep-white * {
+    color: #ffffff !important;
+}
