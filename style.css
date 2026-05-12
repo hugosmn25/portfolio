@@ -1,5 +1,5 @@
 /* =========================================
-   DESIGN DU BOUTON THÈME
+   DESIGN DU BOUTON THÈME ET DES ICÔNES
    ========================================= */
 .btn-theme {
     background-color: rgba(128, 128, 128, 0.2) !important;
@@ -17,7 +17,6 @@
     background-color: rgba(128, 128, 128, 0.4) !important;
 }
 
-/* --- COULEURS DES ICÔNES SELON LE THÈME --- */
 /* Mode clair : icône sombre */
 html:not(.dark) #theme-toggle svg {
     fill: #111827 !important;
@@ -31,64 +30,61 @@ html.dark #theme-toggle svg {
 }
 
 /* =========================================
-   MODE CLAIR 
-   (S'active quand <html> n'a pas la classe .dark)
+   MODE CLAIR GLOBAL
    ========================================= */
 
 /* 1. Le fond global de la page */
 html:not(.dark) body {
     background-color: #f3f4f6 !important; 
-    color: #111827 !important;
+    background-image: none !important; /* Retire le dégradé Tailwind sombre */
 }
 
-/* 2. Le header et la navbar (fond blanc + petite ombre) */
+/* 2. FORCER LES FONDS CLAIRS SUR TOUTES TES BOÎTES */
 html:not(.dark) header,
 html:not(.dark) nav,
 html:not(.dark) footer,
-html:not(.dark) .bg-gray-800,
-html:not(.dark) .bg-gray-900 {
+html:not(.dark) main,
+html:not(.dark) .bg-black\/40,
+html:not(.dark) .bg-white\/10,
+html:not(.dark) .bg-white\/5,
+html:not(.dark) .bg-black\/20,
+html:not(.dark) .bg-gray-800\/50 {
     background-color: #ffffff !important; 
+    background-image: none !important;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
 }
 
-/* 3. FORCER LA VISIBILITÉ DU HEADER : 
-   Tout le texte et les liens dans la nav deviennent sombres */
-html:not(.dark) header *,
-html:not(.dark) nav * {
-    color: #111827 !important;
+/* 3. BORDURES ET SÉPARATEURS */
+html:not(.dark) hr,
+html:not(.dark) [class*="border-white"],
+html:not(.dark) [class*="border-gray"],
+html:not(.dark) [class*="divide-gray"] {
+    border-color: #e5e7eb !important; 
 }
 
-/* 4. Titres et textes normaux de la page */
+/* 4. TEXTES SOMBRES PARTOUT */
 html:not(.dark) h1, 
 html:not(.dark) h2, 
 html:not(.dark) h3, 
 html:not(.dark) h4,
 html:not(.dark) p, 
-html:not(.dark) li {
+html:not(.dark) li,
+html:not(.dark) span,
+html:not(.dark) div,
+html:not(.dark) strong,
+html:not(.dark) [class*="text-white"],
+html:not(.dark) [class*="text-gray-"] {
     color: #111827 !important; 
-}
-
-/* 5. Liens au survol (Bleu Tailwind) */
-html:not(.dark) a:hover,
-html:not(.dark) header a:hover,
-html:not(.dark) nav a:hover {
-    color: #2563eb !important; 
-}
-
-/* 6. Garder les autres boutons intacts (boutons de formulaires, etc.) */
-html:not(.dark) button:not(.btn-theme) {
-    background-color: #2563eb !important; 
-    color: #ffffff !important; 
 }
 
 /* 5. GÉRER LES LIENS */
 html:not(.dark) a {
-    color: #2563eb !important; /* Bleu par défaut pour les liens */
+    color: #2563eb !important; 
 }
 html:not(.dark) a:hover {
     color: #1d4ed8 !important; 
 }
-/* Exception pour les liens du header/nav qui doivent rester noirs */
+/* Garder les liens du header/nav noirs */
 html:not(.dark) header a,
 html:not(.dark) nav a {
     color: #111827 !important;
@@ -98,24 +94,60 @@ html:not(.dark) nav a:hover {
     color: #2563eb !important;
 }
 
-/* 6. PROTÉGER LES BOUTONS
-   Pour éviter que le texte de tes boutons (comme "Me contacter") ne devienne sombre sur fond blanc, 
-   on force leur style à part. */
-html:not(.dark) button:not(.btn-theme),
-html:not(.dark) .btn {
-    background-color: #2563eb !important; 
-}
-html:not(.dark) button:not(.btn-theme) *,
-html:not(.dark) .btn * {
-    color: #ffffff !important; /* Le texte à l'intérieur des boutons reste blanc */
-}
-
 /* =========================================
-   EXCEPTIONS DU MODE CLAIR
+   EXCEPTIONS ET TOUCHES DE COULEUR
    ========================================= */
 
-/* Forcer certains éléments à rester blancs en toutes circonstances */
+/* Ton texte de présentation de l'index qui doit rester blanc */
 html:not(.dark) .keep-white,
 html:not(.dark) .keep-white * {
     color: #ffffff !important;
+}
+
+/* Conserver les couleurs de tes titres dans Projets */
+html:not(.dark) [class*="text-blue-300"] {
+    color: #2563eb !important; /* Devient bleu foncé */
+}
+
+/* Adapter le texte de tes badges de compétences */
+html:not(.dark) [class*="text-blue-200"] {
+    color: #1d4ed8 !important;
+}
+html:not(.dark) [class*="text-purple-200"] {
+    color: #6d28d9 !important;
+}
+
+/* =========================================
+   BORDURES NOIRES SUR LES LISTES (<li>)
+   ========================================= */
+
+/* Ajouter une bordure noire à tous les <li> dans le contenu principal */
+html:not(.dark) main li {
+    border: 2px solid #111827 !important; /* Bordure noire bien visible */
+    border-radius: 0.75rem !important; /* Coins arrondis pour rester harmonieux */
+    padding: 1rem !important; /* Espace intérieur pour que le texte respire */
+    margin-bottom: 0.5rem !important; /* Espace entre chaque élément */
+}
+
+/* Annuler la bordure sur les "sous-listes" 
+   (ex: les listes à puces à l'intérieur de tes missions de stages) 
+   pour éviter l'effet "boîte dans une boîte" */
+html:not(.dark) main li li {
+    border: none !important;
+    padding: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/* =========================================
+   DÉMARCATION DU HEADER ET DU FOOTER
+   ========================================= */
+
+/* Ligne noire en bas du header */
+html:not(.dark) header {
+    border-bottom: 2px solid #111827 !important;
+}
+
+/* Ligne noire en haut du footer */
+html:not(.dark) footer {
+    border-top: 2px solid #111827 !important;
 }
